@@ -1,0 +1,19 @@
+<?php
+$post = $db->prepare('SELECT * FROM post WHERE id=?', [$_GET['id']], 'App\Table\Post', true);
+
+
+?>
+<div class='container mt-5'>
+
+    <div class="col-md-12">
+        <div class="card p-2">
+            <h2 class="card-title text-center">
+
+                <a href="<?= $post->url ?>"><?= $post->title ?></a>
+            </h2>
+            <div class="card-body">
+                <p class="card-text"><?= $post->content ?></p>
+            </div>
+        </div>
+    </div>
+</div>
