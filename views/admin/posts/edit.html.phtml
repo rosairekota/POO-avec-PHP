@@ -1,0 +1,54 @@
+<?php
+
+use Core\HTML\BootstrapForm;
+
+$app=App::getInstance();
+$post =$app->getTable('Post');
+if (!empty($_POST)) {
+   $response= $post->update($_GET['id'],[
+        'title'       =>$_POST['title'],
+        'content'     =>$_POST['content'],
+        'category_id' =>$_POST['category_id']
+    ]);
+    if ($response==null) {?>
+        <div class="container">
+               <div class="alert alert-success">
+                 <center>L'article a bien été modifié!</center>
+               </div>
+           </div>
+   <?php }
+}
+
+$post=$post->find($_GET['id']);
+if ($post == false) {
+    $app->notFound();
+}
+    $form=new BootstrapForm($post);
+
+    $categories=$app->getTable('Category')->getlist('id','title');
+   
+
+?>
+<div class='container mt-5'>
+
+    <div class="col-md-12">
+        <div class="card p-2">
+            <h2 class="card-title text-center">
+
+                Editer l'article
+
+            </h2>
+           
+            <div class="card-body">
+               <form  method="post">
+                  
+                       <?=$form->input('title','Titre de l\'article')?>
+                        <?=$form->input('content','Contenu de l\'article',['type'=>'textarea'])?>
+                         <?=$form->select('category_id','Catégorie de l\'article',null,$categories)?>
+                         <center> <?=$form->submit('Editer')?></center>
+                  
+               </form>
+            </div>
+        </div>
+    </div>
+</div>

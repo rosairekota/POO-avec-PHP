@@ -1,0 +1,47 @@
+<?php
+
+use Core\HTML\BootstrapForm;
+
+$app=App::getInstance();
+$post =$app->getTable('Post');
+if (!empty($_POST)) {
+   $response= $post->create([
+        'title'       =>$_POST['title'],
+        'content'     =>$_POST['content'],
+        'category_id' =>$_POST['category_id']
+    ]);
+    if ($response==null) {
+       header('Location:admin.php?p=post.edit&id='.$app->getDatabase()->getLastInsertId());
+   }
+}
+
+
+    $form=new BootstrapForm($_POST);
+
+    $categories=$app->getTable('Category')->getlist('id','title');
+   
+
+?>
+<div class='container mt-5'>
+
+    <div class="col-md-12">
+        <div class="card p-2">
+            <h2 class="card-title text-center">
+
+                Ajouter un article
+
+            </h2>
+           
+            <div class="card-body">
+               <form  method="post">
+                  
+                       <?=$form->input('title','Titre de l\'article')?>
+                        <?=$form->input('content','Contenu de l\'article',['type'=>'textarea'])?>
+                         <?=$form->select('category_id','Catégorie de l\'article',null,$categories)?>
+                         <center> <?=$form->submit('Ajouter')?></center>
+                  
+               </form>
+            </div>
+        </div>
+    </div>
+</div>

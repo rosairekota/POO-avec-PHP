@@ -1,39 +1,41 @@
 <?php
-require_once '../app/Autoloader.php';
-require_once '../app/utils.php';
 
-use App\Autoloader;
-use App\App;
-use App\Config;
+define('ROOT', dirname(__DIR__));
+require ROOT . '/src/App.php';
 
-Autoloader::register();
-$config = Config::getInstance()->getKey('db_name');
+
+$app = App::run();
 
 
 
-var_dump($config);
-
-die;
-
-
-if (isset($_GET['p']) && !empty($_GET['p'])) {
-    $p = $_GET['p'];
-} else {
-    $p = 'home';
-}
-
-// INITIALISATION DES OBJETS
+//TRAITEMENT DE NOS ROUTES AVEC NOTRE ROUTEUR
+// $routeur =new \Routeur(ROOT .'/views');
+// $routeur->get('/','admin/home','home')
+//         ->get('/admin','admin/post','post')
+//         ->run();
 
 
 
-ob_start();
-if ($p === 'home') {
-    require __DIR__ . '../../pages/home.html.phtml';
-} elseif ($p === 'post') {
-    require __DIR__ . '../../pages/single.html.phtml';
-} elseif ($p === 'category') {
-    require __DIR__ . '../../pages/category.html.phtml';
-}
-$pageContent = ob_get_clean();
+    if (isset($_GET['p']) && !empty($_GET['p'])) {
+        $p = $_GET['p'];
+    } else {
+        $p = 'home';
+    }
 
-require  '../pages/templates/default.html.phtml';
+    // Auth
+  
+
+    ob_start();
+    if ($p === 'home') {
+        require ROOT . '/views/blog/home.html.phtml';
+    } elseif ($p === 'post.show') {
+        require ROOT . '/views/blog/show.html.phtml';
+    } elseif ($p === 'category') {
+        require ROOT . '/views/blog/category.html.phtml';
+    }
+     elseif ($p === 'login') {
+        require ROOT . '/views/users/login.html.phtml';
+    }
+    $pageContent = ob_get_clean();
+
+    require  ROOT . '/views/layouts/default.html.phtml';

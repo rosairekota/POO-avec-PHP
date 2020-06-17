@@ -1,0 +1,44 @@
+<?php
+
+
+$app = App::getInstance();
+
+$posts = $app->getTable('post')->findAll();
+
+
+
+?>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-9">
+           <table class="table">
+               <thead>
+                   <tr>
+                       <td>Id</td>
+                       <td>Titre</td>
+                       <td>Actions</td>
+                   </tr>
+               </thead>
+               <tbody>
+                       <?php foreach ($posts as $post): ?>
+                   <tr>
+                       <td><?=$post->id?></td>
+                       <td><?=$post->title?></td>
+                       <td>
+                           <a href="?p=post.edit&id=<?=$post->id?>" class="btn btn-primary">Editer</a>
+                           <form action="?p=post.delete" method="post" style="display: inline;" onsubmit="confirm('Etes-vous sur de supprimer?')">
+                            <input type="hidden" name="id" value="<?=$post->id?>">
+                             <button type="submit" class="btn btn-danger">Suprimmer</button>
+                           </form>
+                       </td>
+                   </tr>
+                       <?php endforeach;?>
+               </tbody>
+           </table>
+        </div>
+        <div class="col-md-3">
+            <a href="admin.php?p=post.add" class="btn btn-primary">Nouvel article</a>
+        </div>
+    </div>
+</div>

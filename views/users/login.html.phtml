@@ -1,0 +1,33 @@
+<?php
+
+use Core\Auth\DBAuth;
+
+    if (!empty($_POST)) {
+
+        $auth=new DBAuth(App::getInstance()->getDatabase());
+        if ($auth->login($_POST['username'],$_POST['password'])) {
+            
+            header('Location:admin.php');
+           
+        } else {?>
+           <div class="container">
+               <div class="alert alert-danger">
+                 <center>Identifiants Incorrects</center>
+               </div>
+           </div>
+       <?php }
+        
+    }
+  
+
+ $form=new Core\HTML\BootstrapForm($_POST);
+?>
+<div class="container">
+    <form  method="post" class="mt-5 text-center">
+        <!-- <label for="username">Nom d'utilisateur</label> -->
+        <?=$form->input('username','Nom d\'utilisateur')?>
+        <!-- <label for="password">Mot de Passse</label> -->
+        <?=$form->input('password','Mot de passe',['type' =>'password'])?>
+       <center> <?=$form->submit('Se Connecter')?></center>
+    </form>
+</div>
