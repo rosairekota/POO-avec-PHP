@@ -1,41 +1,31 @@
 <?php
 
+use App\Table\Category;
+use App\Table\Post;
+use App\App;
 
-
-// $statement = $pdo->exec('INSERT INTO post SET title="Mon titre", content="contenu sutitre",
-//                       image="https://lorempixel.com/640/480/?51191",category_id=56,
-//                        created_at="' . date('y/m/d H:i:s') . '"');
-// $res = $pdo->query('SELECT * FROM post');
-// //$res = $statement->fetchAll();
-// $datas = $res->fetchAll(PDO::FETCH_OBJ);
-// //dump($res);
-// dump($datas[0]);
-
-//<?php var_dump($post) 
-
-
-
-$app = App::getInstance();
-
-$categories = $app->getTable('Category')->findAll();
-$posts = $app->getTable('post')->getLast();
-
-
-
+$categorie = Category::find($_GET['id']);
+if ($categorie == false) {
+    App::notFound();
+}
+$posts = Post::lastByCategory($_GET['id']);
+$categories = Category::findAll();
 ?>
 
+
 <div class="container mt-5">
+    <h1 class="text-lead"><?= $categorie->title ?></h1>
     <div class="row">
         <div class="col-md-8">
             <div class="row">
                 <?php foreach ($posts as $post) : ?>
-                    <div class="col-md-4 my-2">
+                    <div class="col-md-4">
                         <div class="card p-2">
                             <h2 class="card-title">
 
                                 <a href="<?= $post->url ?>"><?= $post->title ?></a>
                             </h2>
-                            <p class="lead">Categorie: <em><?= $post->category_id ?></em></p>
+                            <p class="lead">Categorie: <em><?= $post->category ?></em></p>
                             <div class="card-body">
                                 <p class="card-text"><?= $post->extrait ?></p>
                             </div>
@@ -47,7 +37,7 @@ $posts = $app->getTable('post')->getLast();
         <div class="col-md-4">
             <h2 class="text-dark">Les Categories</h2>
             <ul>
-                <?php foreach ($app->getTable('Category')->findAll() as $categorie) : ?>
+                <?php foreach ($categories as $categorie) : ?>
                     <li><a href="<?= $categorie->url ?>"><?= $categorie->title ?></a></li>
                 <?php endforeach; ?>
             </ul>

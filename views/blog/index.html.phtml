@@ -1,0 +1,53 @@
+<?php
+
+
+
+// $statement = $pdo->exec('INSERT INTO post SET title="Mon titre", content="contenu sutitre",
+//                       image="https://lorempixel.com/640/480/?51191",category_id=56,
+//                        created_at="' . date('y/m/d H:i:s') . '"');
+// $res = $pdo->query('SELECT * FROM post');
+// //$res = $statement->fetchAll();
+// $datas = $res->fetchAll(PDO::FETCH_OBJ);
+// //dump($res);
+// dump($datas[0]);
+
+//<?php var_dump($post) 
+
+
+
+
+
+
+
+?>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <?php foreach ($posts as $post) : ?>
+                    <div class="col-md-4 my-2">
+                        <div class="card p-2">
+                            <h2 class="card-title">
+
+                                <a href="<?= $post->url ?>"><?= $post->title ?></a>
+                            </h2>
+                            <p class="lead">Categorie: <em><?= $post->category_id ?></em></p>
+                            <div class="card-body">
+                                <p class="card-text"><?= $post->extrait ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-dark">Les Categories</h2>
+            <ul>
+                <?php foreach ($categories as $categorie) : ?>
+                    <li><a href="<?= $categorie->url ?>"><?= $categorie->title ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>

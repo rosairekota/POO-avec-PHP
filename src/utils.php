@@ -2,8 +2,8 @@
 
 
 
-if (!function_exists('dump')) {
-    function dump($datas)
+if (!function_exists('dumpLocal')) {
+    function dumpLocal($datas)
     { ?>
         <pre style="color:darkgray;background-color: rgb(5, 3, 14); margin:40px;padding:40px;">
 

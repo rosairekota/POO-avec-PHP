@@ -6,7 +6,23 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit0e32e8c5d3e93b224760074020490afa
 {
+    public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Twig\\' => 5,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\VarDumper\\' => 28,
+        ),
         'C' => 
         array (
             'Core\\' => 5,
@@ -18,6 +34,22 @@ class ComposerStaticInit0e32e8c5d3e93b224760074020490afa
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
         'Core\\' => 
         array (
             0 => __DIR__ . '/../..' . '/core',
@@ -30,21 +62,6 @@ class ComposerStaticInit0e32e8c5d3e93b224760074020490afa
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
-        'App\\Autoloader' => __DIR__ . '/../..' . '/src/Autoloader.php',
-        'App\\Entity\\CategoryEntity' => __DIR__ . '/../..' . '/src/Entity/CategoryEntity.php',
-        'App\\Entity\\PostEntity' => __DIR__ . '/../..' . '/src/Entity/PostEntity.php',
-        'App\\Table\\CategoryTable' => __DIR__ . '/../..' . '/src/Table/CategoryTable.php',
-        'App\\Table\\Post' => __DIR__ . '/../..' . '/src/Table/Static_Class_OLD/Post.php',
-        'App\\Table\\PostTable' => __DIR__ . '/../..' . '/src/Table/PostTable.php',
-        'App\\Table\\Static_Class_OLD\\Category' => __DIR__ . '/../..' . '/src/Table/Static_Class_OLD/Category.php',
-        'Core\\Auth\\DBAuth' => __DIR__ . '/../..' . '/core/Auth/DBAuth.php',
-        'Core\\Autoloader' => __DIR__ . '/../..' . '/core/Autoloader.php',
-        'Core\\Config' => __DIR__ . '/../..' . '/core/Config.php',
-        'Core\\Database\\Database' => __DIR__ . '/../..' . '/core/Database/Database.php',
-        'Core\\Database\\DatabaseInterface' => __DIR__ . '/../..' . '/core/Database/DatabaseInterface.php',
-        'Core\\Database\\MysqlDatabase' => __DIR__ . '/../..' . '/core/Database/MysqlDatabase.php',
-        'Core\\Entity\\Entity' => __DIR__ . '/../..' . '/core/Entity/Entity.php',
-        'Core\\Table\\Table' => __DIR__ . '/../..' . '/core/Table/Table.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

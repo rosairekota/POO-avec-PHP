@@ -1,5 +1,7 @@
 <?php
 
+use App\Controller\PostController;
+
 define('ROOT', dirname(__DIR__));
 require ROOT . '/src/App.php';
 
@@ -23,19 +25,20 @@ $app = App::run();
     }
 
     // Auth
-  
+  $postController=new PostController();
+  //$UserController=new UserController();
 
     ob_start();
     if ($p === 'home') {
-        require ROOT . '/views/blog/home.html.phtml';
+        $postController->index();
     } elseif ($p === 'post.show') {
-        require ROOT . '/views/blog/show.html.phtml';
+          $postController->show();
+       
     } elseif ($p === 'category') {
-        require ROOT . '/views/blog/category.html.phtml';
+         $postController->show();
     }
      elseif ($p === 'login') {
-        require ROOT . '/views/users/login.html.phtml';
+        
+        echo 'tot';
     }
-    $pageContent = ob_get_clean();
-
-    require  ROOT . '/views/layouts/default.html.phtml';
+   
