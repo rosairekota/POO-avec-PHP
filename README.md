@@ -4,4 +4,4 @@ Ceci vous est util pour vos projets personnel. j'ai utilise les Patternes Single
 
 # particularité: 
  L'integration du Moteur de Template Twig(https://twig.symfony.com/) dans un projet PHP pur.
- Dans core/Controller/AbsractController.php vous pouvez faire le choix d'un moteur de template; soit PHP ou Twig
+ ### Vous pouvez faire le choix d'un moteur de template https://github.com/rosairekota/POO-avec-PHP/blob/master/core/Controller/AbstractController.php
