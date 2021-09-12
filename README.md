@@ -3,6 +3,5 @@ Ce projet est le resultat du cours que je suivi de Grafikart(https://www.youtube
 Ceci vous est util pour vos projets personnel. j'ai utilise les Patternes Singleton, factory et MVC. 
 
 # particularité: 
-Son avatange est egalement l'integration du Moteur de Template Twig.
-J'ai integré le moteur de template twig:  https://twig.symfony.com/
-Dans core/Controller/AbsractController.php vous pouvez changer l'utilisation du moteur de template; soit PHP ou Twig
+ L'integration du Moteur de Template Twig(https://twig.symfony.com/) dans un projet PHP pur.
+ Dans core/Controller/AbsractController.php vous pouvez faire le choix d'un moteur de template; soit PHP ou Twig
