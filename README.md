@@ -1,5 +1,5 @@
 # POO-avec-PHP
-Ce projet est le resultat du cours que je suivi de Grafikart(https://www.youtube.com/watch?v=r_NiFqLvfsc&list=PLjwdMgw5TTLVDKy8ikf5Df5fnMqY-ec16) sur la POO avec PHP.
+Ce projet est le resultat du cours que j'avais suivi de Grafikart(https://www.youtube.com/watch?v=r_NiFqLvfsc&list=PLjwdMgw5TTLVDKy8ikf5Df5fnMqY-ec16) sur la POO avec PHP.
 Ceci vous est util pour vos projets personnel. j'ai utilise les Patternes Singleton, factory et MVC. 
 
 # particularité: 
